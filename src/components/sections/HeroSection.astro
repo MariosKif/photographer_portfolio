@@ -1,0 +1,86 @@
+---
+const slides = [
+  { bg: 'bg-img-1', image: '/img/background/4.jpg' },
+  { bg: 'bg-img-2', image: '/img/background/3.jpg' },
+  { bg: 'bg-img-3', image: '/img/about/1.jpg' },
+  { bg: 'bg-img-4', image: '/img/background/hero-bg-4.jpg' },
+];
+---
+<div class="section relative overflow-hidden h-screen bg-transparent" id="home">
+  <!-- hero bg -->
+  <div class="absolute w-full h-full left-0 top-0 overflow-hidden z-0">
+    <div class="w-full h-full">
+      <div class="relative w-full h-full">
+        <!-- swiper container wrapper -->
+        <div class="swiper-container-wrapper">
+          <div class="swiper-container hero-swiper">
+            <div class="swiper-wrapper">
+              {slides.map((slide) => (
+                <div class="swiper-slide">
+                  <div class="swiper-slide-inner" data-swiper-parallax="50%">
+                    <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
+                    <div class="overlay overlay-dark-60"></div>
+                    <div class="swiper-slide-inner-txt text-center">
+                      <div class="font-oswald text-[17px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] lg:text-[17px] md:text-[15px] md:mb-[14px]">Everyone Needs a</div>
+                      <div class="font-oswald text-[155px] font-bold uppercase leading-none text-white -ml-[9px] lg:text-[115px] lg:-ml-[6px] md:text-[75px] md:-ml-[4px]">NAME</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- slider controls -->
+        <div class="hero-slider-bg-controls fadeIn-element">
+          <div class="swiper-slide-controls slide-prev">
+            <div class="ion-ios-arrow-left"></div>
+          </div>
+          <div class="swiper-slide-controls slide-next">
+            <div class="ion-ios-arrow-right"></div>
+          </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="swiper-slide-pagination fadeIn-element"></div>
+
+        <!-- play/pause -->
+        <div class="swiper-slide-controls-play-pause-wrapper swiper-slide-controls-play-pause slider-on-off fadeIn-element">
+          <div class="slider-on-off-switch">
+            <i class="ion-ios-play"></i>
+          </div>
+          <div class="slider-progress-bar">
+            <span>
+              <svg class="circle-svg" height="50" width="50">
+                <circle class="circle" cx="25" cy="25" fill="none" r="24" stroke="#e0e0e0" stroke-width="2"></circle>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom credits -->
+  <div class="absolute block left-[51px] bottom-[47px] text-white text-[9px] uppercase tracking-wide font-extrabold z-[1002] fadeIn-element md:left-[26px] md:text-[8px]">
+    <a class="link-underline" href="#">MARIOS KIFOKERIS</a> &copy; All Rights Reserved.
+  </div>
+
+  <!-- social icons -->
+  <div class="absolute right-[50px] bottom-[48px] text-right z-[1002] fadeIn-element hidden md:hidden lg:block">
+    <ul class="text-[16px] leading-none relative">
+      <li class="inline-block pl-[5px]"><a class="ion-social-twitter text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-facebook text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer"></a></li>
+      <li class="inline-block pl-[5px]"><a class="text-white hover:opacity-50 transition-all duration-500 no-underline inline-flex items-center" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-youtube text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-linkedin text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-instagram text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer"></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-pinterest text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
+    </ul>
+  </div>
+
+  <!-- scroll indicator -->
+  <div class="absolute left-1/2 bottom-0 z-10">
+    <div class="scroll-indicator"></div>
+  </div>
+</div>

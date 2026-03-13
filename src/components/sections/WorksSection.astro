@@ -1,0 +1,198 @@
+---
+const worksItems = [
+  { num: 1, title: 'Automotive', category: '', image: '/img/background/4.jpg', type: 'photo', href: '/img/background/4.jpg', label: 'View image', gallery: 'automotive', galleryImages: [
+    '/img/background/4.jpg',
+    '/img/automotive/2023-06-18 18.01.04.jpg',
+    '/img/automotive/2025-05-23 22.22.47.jpg',
+    '/img/automotive/2025-05-24 15.00.21.jpg',
+    '/img/automotive/2025-05-24 20.22.50.jpg',
+    '/img/automotive/2025-05-24 21.31.30.jpg',
+    '/img/automotive/2025-05-24 21.34.16.jpg',
+    '/img/automotive/2025-05-24 21.35.37.jpg',
+    '/img/automotive/2025-05-24 21.35.46.jpg',
+    '/img/automotive/2025-05-24 21.35.47.jpg',
+    '/img/automotive/2025-05-24 21.35.51.jpg',
+    '/img/automotive/2025-05-24 22.10.55.jpg',
+    '/img/automotive/2025-05-24 22.16.11.jpg',
+    '/img/automotive/2025-05-24 22.37.04.jpg',
+    '/img/automotive/2025-05-24 22.49.47.jpg',
+    '/img/automotive/2025-05-24 22.50.16.jpg',
+    '/img/automotive/_DSC5809.jpg',
+    '/img/automotive/_DSC5811.jpg',
+    '/img/automotive/_DSC7318.jpg',
+    '/img/automotive/_DSC7371.jpg',
+    '/img/automotive/_PRP7626 copy.jpg',
+    '/img/automotive/exofilo.jpg',
+    '/img/automotive/site no plate.jpg',
+  ] },
+  { num: 2, title: 'ART', category: '', image: '/img/art/exofilo.jpg', type: 'photo', href: '/img/art/exofilo.jpg', label: 'View image', gallery: 'art', galleryImages: [
+    '/img/art/exofilo.jpg',
+    '/img/art/2024-08-10 18.24.20.jpg',
+    '/img/art/2024-08-10 19.22.06.jpg',
+    '/img/art/2024-08-10 19.24.57.jpg',
+    '/img/art/2024-08-10 19.31.06.jpg',
+    '/img/art/2024-08-10 19.35.01.jpg',
+    '/img/art/2025-03-20 17.59.49.jpg',
+    '/img/art/2025-04-02 17.27.05.jpg',
+    '/img/art/2025-04-02 17.37.29.jpg',
+    '/img/art/2025-06-17 18.22.58.jpg',
+    '/img/art/_DSC8328.jpg',
+  ] },
+  { num: 3, title: 'Events', category: '', image: '/img/event/2024-03-16 15.41.46.jpg', type: 'photo', href: '/img/event/2024-03-16 15.41.46.jpg', label: 'View image', gallery: 'events', galleryImages: [
+    '/img/event/2024-03-16 15.41.46.jpg',
+    '/img/event/2025-06-22 23.03.18.jpg',
+    '/img/event/2025-06-22 23.03.32.jpg',
+    '/img/event/2025-06-22 23.06.42.jpg',
+    '/img/event/2025-06-22 23.42.08.jpg',
+    '/img/event/2025-06-23 01.19.18.jpg',
+    '/img/event/2025-06-23 01.23.13.jpg',
+    '/img/event/2025-06-23 01.23.19.jpg',
+    '/img/event/PRP07505 copy.jpg',
+    '/img/event/_PRP0468 copy.jpg',
+    '/img/event/_PRP1692 copy.jpg',
+    '/img/event/_PRP1752 copy.jpg',
+    '/img/event/_PRP1783 copy.jpg',
+    '/img/event/_PRP2324 copy.jpg',
+    '/img/event/_PRP2420 copy.jpg',
+    '/img/event/_PRP2599 copy.jpg',
+    '/img/event/_PRP2674 copy.jpg',
+    '/img/event/_PRP2702 copy.jpg',
+    '/img/event/_PRP2734 copy.jpg',
+    '/img/event/_PRP2764 copy.jpg',
+    '/img/event/_PRP2825 copy.jpg',
+    '/img/event/_PRP2913 copy.jpg',
+    '/img/event/_PRP2935 copy.jpg',
+    '/img/event/_PRP2986 copy.jpg',
+    '/img/event/_PRP3052 copy.jpg',
+    '/img/event/_PRP3136 copy.jpg',
+    '/img/event/_PRP3157 copy.jpg',
+    '/img/event/_PRP3213 copy.jpg',
+    '/img/event/_PRP3229-Enhanced-NR copy.jpg',
+    '/img/event/_PRP3238 copy.jpg',
+    '/img/event/_PRP3543-Enhanced-NR copy.jpg',
+    '/img/event/_PRP3664-Enhanced-NR copy.jpg',
+  ] },
+  { num: 4, title: 'Products', category: '', image: '/img/product/exofilo.jpg', type: 'photo', href: '/img/product/exofilo.jpg', label: 'View image', gallery: 'products', galleryImages: [
+    '/img/product/exofilo.jpg',
+    '/img/product/2024-01-30 14.41.50.jpg',
+    '/img/product/2024-01-30 14.42.21.jpg',
+    '/img/product/2024-01-30 14.42.53.jpg',
+    '/img/product/2024-01-30 14.44.19.jpg',
+    '/img/product/2024-01-30 14.46.42.jpg',
+    '/img/product/2024-03-26 13.59.37.jpg',
+    '/img/product/2025-03-13 14.33.12.jpg',
+    '/img/product/2025-06-08 19.47.39.jpg',
+    '/img/product/2025-06-20 11.25.33.jpg',
+    '/img/product/2025-06-20 11.25.38.jpg',
+    '/img/product/2025-06-20 11.25.46.jpg',
+    '/img/product/2025-07-04 18.30.57.jpg',
+    '/img/product/2025-07-04 21.03.16.jpg',
+    '/img/product/2025-07-04 21.18.24.jpg',
+    '/img/product/2025-07-04 21.20.53.jpg',
+    '/img/product/2025-07-04 21.25.23.jpg',
+    '/img/product/3.2.jpg',
+    '/img/product/_DSC1905.jpg',
+    '/img/product/_DSC1910.jpg',
+    '/img/product/_DSC4549 copy.jpg',
+    '/img/product/_DSC4562 copy.jpg',
+    '/img/product/_DSC4564 copy.jpg',
+    '/img/product/_DSC4581 copy.jpg',
+  ] },
+  { num: 5, title: 'Portrait', category: '', image: '/img/portrait/exofilo.jpg', type: 'photo', href: '/img/portrait/exofilo.jpg', label: 'View image', gallery: 'portrait', galleryImages: [
+    '/img/portrait/exofilo.jpg',
+    '/img/portrait/2024-04-22 21.47.47.jpg',
+    '/img/portrait/2024-04-28 23.36.00.jpg',
+    '/img/portrait/2025-01-07 18.30.52.jpg',
+    '/img/portrait/2025-01-07 18.31.33.jpg',
+    '/img/portrait/2025-03-20 17.03.14.jpg',
+    '/img/portrait/2025-03-24 19.03.50.jpg',
+    '/img/portrait/2025-04-01 21.53.37.jpg',
+    '/img/portrait/2025-04-02 15.43.00.jpg',
+    '/img/portrait/2025-04-02 17.29.27.jpg',
+    '/img/portrait/2025-06-17 15.59.32.jpg',
+    '/img/portrait/2025-06-26 15.29.14.jpg',
+    '/img/portrait/2025-06-26 15.53.42.jpg',
+    '/img/portrait/2025-06-26 16.26.27.jpg',
+    '/img/portrait/2025-06-26 17.10.03.jpg',
+    '/img/portrait/_DSC0752.jpg',
+    '/img/portrait/_DSC1241.jpg',
+    '/img/portrait/_DSC1249.jpg',
+    '/img/portrait/_DSC1396.jpg',
+    '/img/portrait/_DSC1408.jpg',
+    '/img/portrait/_DSC1483 copy.jpg',
+    '/img/portrait/_DSC1485.jpg',
+    '/img/portrait/_DSC1675 copy.jpg',
+    '/img/portrait/_DSC1840.jpg',
+    '/img/portrait/_DSC1844.jpg',
+    '/img/portrait/_DSC2715 copy.jpg',
+    '/img/portrait/_DSC4289.jpg',
+    '/img/portrait/_DSC4308.jpg',
+    '/img/portrait/_DSC4953.jpg',
+    '/img/portrait/_DSC4960.jpg',
+    '/img/portrait/_DSC6073.jpg',
+    '/img/portrait/_DSC6121.jpg',
+    '/img/portrait/_DSC6200.jpg',
+    '/img/portrait/_DSC6207.jpg',
+    '/img/portrait/_DSC6430.jpg',
+    '/img/portrait/_DSC6779.jpg',
+    '/img/portrait/_DSC6783.jpg',
+    '/img/portrait/_DSC6811.jpg',
+    '/img/portrait/_DSC7131.jpg',
+    '/img/portrait/_DSC7271.jpg',
+    '/img/portrait/_DSC7845-2.jpg',
+    '/img/portrait/_DSC7893.jpg',
+    '/img/portrait/_DSC7914.jpg',
+    '/img/portrait/_DSC7988.jpg',
+    '/img/portrait/_DSC8017.jpg',
+    '/img/portrait/_DSC8030.jpg',
+    '/img/portrait/_PRP0079 copy.jpg',
+    '/img/portrait/_PRP0403 copy.jpg',
+    '/img/portrait/_PRP0441 copy.jpg',
+    '/img/portrait/_PRP6697 copy.jpg',
+    '/img/portrait/_PRP6879 copy.jpg',
+    '/img/portrait/_PRP7741 copy.jpg',
+  ] },
+  { num: 6, title: 'Couple Photography', category: '', image: '/img/couple photography/exofilo.jpg', type: 'photo', href: '/img/couple photography/exofilo.jpg', label: 'View image', gallery: 'couple', galleryImages: [
+    '/img/couple photography/exofilo.jpg',
+    '/img/couple photography/2025-05-27 22.17.00.jpg',
+    '/img/couple photography/2025-05-27 22.17.18.jpg',
+    '/img/couple photography/2025-05-27 22.18.53.jpg',
+    '/img/couple photography/2025-05-27 22.20.10.jpg',
+    '/img/couple photography/2025-05-27 22.20.58.jpg',
+  ] },
+];
+---
+<div class="section relative overflow-hidden bg-black" id="works">
+  <div class="section-title-vertical right-side"><span>Works</span></div>
+
+  <div class="relative w-screen h-screen !p-0 !m-0 lg:w-full">
+    <div class="grid grid-cols-3 w-full h-full">
+      {worksItems.map((item) => (
+        <div
+          class="works-page-img-carousel-item relative w-full h-[50vh] bg-cover bg-center bg-no-repeat overlay overlay-inverse-dark-35"
+          style={`background-image: url('${item.image}')`}
+        >
+          <div class="works-page-img-carousel-wrapper relative bg-transparent h-[50vh]">
+            <div class="works-page-img-carousel-text absolute w-full text-center text-white text-[14px] font-medium tracking-wide bottom-[50px] px-[60px] z-10 lg:text-[13px]">
+              <div class="works-page-img-carousel-title">
+                <h4 class="font-oswald text-[25px] font-normal uppercase tracking-wide text-white leading-[1.25] pb-[8px] -mb-[5px] [text-shadow:1px_1px_2px_#111] lg:text-[18px] lg:leading-[1.5] lg:pb-[3px] lg:mb-0" set:html={item.title}></h4>
+              </div>
+              <div class="works-page-img-carousel-content">
+                <div class="mt-[26px]"></div>
+                <a
+                  class={`c-btn inverse ${item.type === 'photo' ? 'popup-photo' : ''}`}
+                  href={item.href}
+                  title={item.title.replace(/<br\s*\/?>/g, ' ')}
+                  data-gallery={item.gallery || undefined}
+                ><span>{item.label}</span></a>
+                {item.galleryImages && item.galleryImages.slice(1).map((img) => (
+                  <a class="popup-photo hidden" href={img} data-gallery={item.gallery}></a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
