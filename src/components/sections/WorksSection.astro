@@ -165,34 +165,40 @@ const worksItems = [
 <div class="section relative overflow-hidden bg-black" id="works">
   <div class="section-title-vertical right-side"><span>Works</span></div>
 
-  <div class="relative w-screen h-screen !p-0 !m-0 lg:w-full">
-    <div class="grid grid-cols-3 w-full h-full">
-      {worksItems.map((item) => (
-        <div
-          class="works-page-img-carousel-item relative w-full h-[50vh] bg-cover bg-center bg-no-repeat overlay overlay-inverse-dark-35"
-          style={`background-image: url('${item.image}')`}
-        >
-          <div class="works-page-img-carousel-wrapper relative bg-transparent h-[50vh]">
-            <div class="works-page-img-carousel-text absolute w-full text-center text-white text-[14px] font-medium tracking-wide bottom-[50px] px-[60px] z-10 lg:text-[13px]">
-              <div class="works-page-img-carousel-title">
-                <h4 class="font-oswald text-[25px] font-normal uppercase tracking-wide text-white leading-[1.25] pb-[8px] -mb-[5px] [text-shadow:1px_1px_2px_#111] lg:text-[18px] lg:leading-[1.5] lg:pb-[3px] lg:mb-0" set:html={item.title}></h4>
-              </div>
-              <div class="works-page-img-carousel-content">
-                <div class="mt-[26px]"></div>
-                <a
-                  class={`c-btn inverse ${item.type === 'photo' ? 'popup-photo' : ''}`}
-                  href={item.href}
-                  title={item.title.replace(/<br\s*\/?>/g, ' ')}
-                  data-gallery={item.gallery || undefined}
-                ><span>{item.label}</span></a>
-                {item.galleryImages && item.galleryImages.slice(1).map((img) => (
-                  <a class="popup-photo hidden" href={img} data-gallery={item.gallery}></a>
-                ))}
+  <div class="relative w-full h-screen !p-0 !m-0">
+    <div class="swiper works-swiper w-full h-full">
+      <div class="swiper-wrapper">
+        {worksItems.map((item) => (
+          <div class="swiper-slide">
+            <div
+              class="works-page-img-carousel-item relative w-full h-full bg-cover bg-center bg-no-repeat overlay overlay-inverse-dark-35"
+              style={`background-image: url('${item.image}')`}
+            >
+              <div class="works-page-img-carousel-wrapper relative bg-transparent h-full">
+                <div class="works-page-img-carousel-text absolute w-full text-center text-white text-[14px] font-medium tracking-wide bottom-[50px] px-[20px] z-10 md:px-[40px] lg:px-[60px] lg:text-[13px]">
+                  <div class="works-page-img-carousel-title">
+                    <h4 class="font-oswald text-[18px] font-normal uppercase tracking-wide text-white leading-[1.25] pb-[8px] -mb-[5px] [text-shadow:1px_1px_2px_#111] lg:text-[25px] lg:leading-[1.5] lg:pb-[3px] lg:mb-0" set:html={item.title}></h4>
+                  </div>
+                  <div class="works-page-img-carousel-content">
+                    <div class="mt-[26px]"></div>
+                    <a
+                      class={`c-btn inverse ${item.type === 'photo' ? 'popup-photo' : ''}`}
+                      href={item.href}
+                      title={item.title.replace(/<br\s*\/?>/g, ' ')}
+                      data-gallery={item.gallery || undefined}
+                    ><span>{item.label}</span></a>
+                    {item.galleryImages && item.galleryImages.slice(1).map((img) => (
+                      <a class="popup-photo hidden" href={img} data-gallery={item.gallery}></a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
 </div>

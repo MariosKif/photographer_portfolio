@@ -1,9 +1,9 @@
 ---
 const slides = [
-  { bg: 'bg-img-1', image: '/img/background/4.jpg' },
-  { bg: 'bg-img-2', image: '/img/background/3.jpg' },
-  { bg: 'bg-img-3', image: '/img/about/1.jpg' },
-  { bg: 'bg-img-4', image: '/img/background/hero-bg-4.jpg' },
+  { bg: 'bg-img-1', video: '/img/background/hero-video.mp4' },
+  { bg: 'bg-img-2', image: '/img/background/4.jpg' },
+  { bg: 'bg-img-3', image: '/img/background/3.jpg' },
+  { bg: 'bg-img-4', image: '/img/background/5.jpg' },
 ];
 ---
 <div class="section relative overflow-hidden h-screen bg-transparent" id="home">
@@ -18,11 +18,17 @@ const slides = [
               {slides.map((slide) => (
                 <div class="swiper-slide">
                   <div class="swiper-slide-inner" data-swiper-parallax="50%">
-                    <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
+                    {slide.video ? (
+                      <video class="swiper-slide-inner-bg" autoplay muted loop playsinline preload="auto">
+                        <source src={slide.video} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
+                    )}
                     <div class="overlay overlay-dark-60"></div>
                     <div class="swiper-slide-inner-txt text-center">
-                      <div class="font-oswald text-[17px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] lg:text-[17px] md:text-[15px] md:mb-[14px]">Everyone Needs a</div>
-                      <div class="font-oswald text-[155px] font-bold uppercase leading-none text-white -ml-[9px] lg:text-[115px] lg:-ml-[6px] md:text-[75px] md:-ml-[4px]">NAME</div>
+                      <div class="font-oswald text-[13px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] md:text-[15px] md:mb-[14px] lg:text-[17px]">Everyone Needs a</div>
+                      <div class="font-oswald text-[40px] font-bold uppercase leading-none text-white md:text-[75px] md:-ml-[4px] lg:text-[115px] lg:-ml-[6px] xl:text-[155px] xl:-ml-[9px]">Prophotogr</div>
                     </div>
                   </div>
                 </div>
@@ -62,20 +68,16 @@ const slides = [
   </div>
 
   <!-- bottom credits -->
-  <div class="absolute block left-[51px] bottom-[47px] text-white text-[9px] uppercase tracking-wide font-extrabold z-[1002] fadeIn-element md:left-[26px] md:text-[8px]">
-    <a class="link-underline" href="#">MARIOS KIFOKERIS</a> &copy; All Rights Reserved.
+  <div class="absolute block left-[20px] bottom-[30px] text-white text-[9px] uppercase tracking-wide font-extrabold z-[1002] fadeIn-element md:left-[26px] md:text-[8px] lg:left-[51px] lg:bottom-[47px]">
+    <a class="link-underline" href="#">PROPHOTOGR</a> &copy; All Rights Reserved.
   </div>
 
   <!-- social icons -->
-  <div class="absolute right-[50px] bottom-[48px] text-right z-[1002] fadeIn-element hidden md:hidden lg:block">
+  <div class="absolute right-[50px] bottom-[48px] text-right z-[1002] fadeIn-element hidden lg:block">
     <ul class="text-[16px] leading-none relative">
-      <li class="inline-block pl-[5px]"><a class="ion-social-twitter text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
       <li class="inline-block pl-[5px]"><a class="ion-social-facebook text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer"></a></li>
       <li class="inline-block pl-[5px]"><a class="text-white hover:opacity-50 transition-all duration-500 no-underline inline-flex items-center" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
-      <li class="inline-block pl-[5px]"><a class="ion-social-youtube text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
-      <li class="inline-block pl-[5px]"><a class="ion-social-linkedin text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
       <li class="inline-block pl-[5px]"><a class="ion-social-instagram text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer"></a></li>
-      <li class="inline-block pl-[5px]"><a class="ion-social-pinterest text-white hover:opacity-50 transition-all duration-500 no-underline" href="#"></a></li>
     </ul>
   </div>
 

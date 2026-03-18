@@ -1,12 +1,13 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Swiper from 'swiper';
-import { Navigation, Pagination, Parallax, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Parallax, Autoplay, Grid } from 'swiper/modules';
 import GLightbox from 'glightbox';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/grid';
 import 'glightbox/dist/css/glightbox.min.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -204,16 +205,23 @@ function initWorksSwiper() {
   if (!el) return;
 
   new Swiper('.works-swiper', {
-    modules: [Navigation],
-    slidesPerView: 1,
+    modules: [Navigation, Grid],
+    slidesPerView: 2,
+    grid: {
+      rows: 2,
+      fill: 'row',
+    },
+    spaceBetween: 0,
     speed: 450,
     navigation: {
       nextEl: '.works-swiper .swiper-button-next',
       prevEl: '.works-swiper .swiper-button-prev',
     },
     breakpoints: {
-      880: { slidesPerView: 2 },
-      1170: { slidesPerView: 3 },
+      880: {
+        slidesPerView: 3,
+        grid: { rows: 2, fill: 'row' },
+      },
     },
   });
 }
@@ -378,12 +386,14 @@ function initContactModal() {
   if (logo) logo.addEventListener('click', close);
 }
 
-// ===== 12. Contact Form Validation =====
+// ===== 12. Contact Form (Web3Forms) =====
 function initContactForm() {
   const form = document.getElementById('form') as HTMLFormElement;
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Remove previous errors
@@ -422,13 +432,37 @@ function initContactForm() {
       }
     });
 
-    if (!hasError) {
-      // Show success message (no backend)
-      const successDiv = document.createElement('div');
-      successDiv.className = 'success';
-      successDiv.textContent = 'Your email was sent successfully.';
-      form.parentElement?.insertBefore(successDiv, form);
-      gsap.to(form, { height: 0, opacity: 0, duration: 0.3, onComplete: () => { form.style.display = 'none'; } });
+    if (hasError) return;
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      formData.append('access_key', '40774e53-c2c3-47e0-ae92-8ee82760c880');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success';
+        successDiv.textContent = 'Your message has been sent successfully.';
+        form.parentElement?.insertBefore(successDiv, form);
+        gsap.to(form, { height: 0, opacity: 0, duration: 0.3, onComplete: () => { form.style.display = 'none'; } });
+      } else {
+        alert('Error: ' + data.message);
+      }
+    } catch {
+      alert('Something went wrong. Please try again.');
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
     }
   });
 }

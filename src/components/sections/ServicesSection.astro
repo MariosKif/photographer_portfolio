@@ -1,25 +1,24 @@
 ---
 const servicesSlider1 = [
-  '/img/services/services-bg-4.jpg',
-  '/img/services/services-bg-5.jpg',
-  '/img/services/services-bg-6.jpg',
+  '/img/services/design-2.jpg',
+  '/img/services/design-1.jpg',
+  '/img/services/design-3.jpg',
+  '/img/services/design-4.jpg',
 ];
 const servicesSlider2 = [
-  '/img/services/services-bg-1.jpg',
-  '/img/services/services-bg-2.jpg',
-  '/img/services/services-bg-3.jpg',
+  '/img/product/exofilo.jpg',
 ];
 ---
 <div class="section relative overflow-hidden bg-black" id="services">
   <div class="section-title-vertical"><span>Services</span></div>
 
   <div class="relative z-[5] flex flex-wrap">
-    <!-- row 1: text left, images right -->
-    <div class="w-full lg:w-1/2 !p-0 !m-0">
+    <!-- row 1: images left, text right on desktop; image first on mobile -->
+    <div class="w-full lg:w-1/2 order-2 lg:order-2 !p-0 !m-0">
       <div class="relative w-full h-[50vh] lg:h-[50vh] bg-white text-center">
         <div class="center-container">
           <div class="center-block">
-            <h2 class="font-oswald text-[35px] font-normal uppercase tracking-wide text-[#111] leading-[1.25] pb-[35px] spacer-line-vertical-dark">Design</h2>
+            <h2 class="font-oswald text-[24px] font-normal uppercase tracking-wide text-[#111] leading-[1.25] pb-[35px] spacer-line-vertical-dark md:text-[30px] lg:text-[35px]">Design</h2>
             <p class="mt-[53px] px-[25px] text-[#5f5f5f] 2xl:mt-[101px] 2xl:px-[150px] lg:mt-[101px] lg:px-[55px]">
               My design approach is clean and timeless, allowing photography to speak for itself. Every detail is carefully chosen to create balance and focus.
             </p>
@@ -27,14 +26,14 @@ const servicesSlider2 = [
         </div>
       </div>
     </div>
-    <div class="w-full lg:w-1/2 !p-0 !m-0">
+    <div class="w-full lg:w-1/2 order-1 lg:order-1 !p-0 !m-0">
       <div class="services-swiper overlay overlay-inverse-dark-35 relative">
         <div class="swiper services-swiper-1">
           <div class="swiper-wrapper">
             {servicesSlider1.map((img) => (
               <div class="swiper-slide">
                 <div class="relative h-[50vh] lg:h-[50vh]">
-                  <div class="h-screen bg-cover bg-center bg-no-repeat lg:absolute lg:w-[50vw] lg:h-auto lg:top-0 lg:bottom-0 sm:min-h-[350px]" style={`background-image: url('${img}')`}></div>
+                  <div class="h-[50vh] bg-cover bg-center bg-no-repeat lg:absolute lg:w-[50vw] lg:h-auto lg:top-0 lg:bottom-0 sm:min-h-[350px]" style={`background-image: url('${img}')`}></div>
                 </div>
               </div>
             ))}
@@ -46,11 +45,11 @@ const servicesSlider2 = [
     </div>
 
     <!-- row 2: images left, text right (reversed on mobile via order) -->
-    <div class="w-full lg:w-1/2 order-2 lg:order-2 !p-0 !m-0">
+    <div class="w-full lg:w-1/2 order-4 lg:order-none !p-0 !m-0">
       <div class="relative w-full h-[50vh] lg:h-[50vh] bg-black text-center">
         <div class="center-container">
           <div class="center-block">
-            <h2 class="font-oswald text-[35px] font-normal uppercase tracking-wide text-white leading-[1.25] pb-[35px] spacer-line-vertical-light">Branding</h2>
+            <h2 class="font-oswald text-[24px] font-normal uppercase tracking-wide text-white leading-[1.25] pb-[35px] spacer-line-vertical-light md:text-[30px] lg:text-[35px]">Branding</h2>
             <p class="mt-[53px] px-[25px] text-white 2xl:mt-[101px] 2xl:px-[150px] lg:mt-[101px] lg:px-[55px]">
               Through branding, I craft a visual identity that connects photography with emotion. It's about telling stories that people remember.
             </p>
@@ -58,14 +57,14 @@ const servicesSlider2 = [
         </div>
       </div>
     </div>
-    <div class="w-full lg:w-1/2 order-1 lg:order-1 !p-0 !m-0">
+    <div class="w-full lg:w-1/2 order-3 lg:order-none !p-0 !m-0">
       <div class="services-swiper overlay overlay-inverse-dark-35 relative">
         <div class="swiper services-swiper-2">
           <div class="swiper-wrapper">
             {servicesSlider2.map((img) => (
               <div class="swiper-slide">
                 <div class="relative h-[50vh] lg:h-[50vh]">
-                  <div class="h-screen bg-cover bg-center bg-no-repeat lg:absolute lg:w-[50vw] lg:h-auto lg:top-0 lg:bottom-0 sm:min-h-[350px]" style={`background-image: url('${img}')`}></div>
+                  <div class="h-[50vh] bg-cover bg-center bg-no-repeat lg:absolute lg:w-[50vw] lg:h-auto lg:top-0 lg:bottom-0 sm:min-h-[350px]" style={`background-image: url('${img}')`}></div>
                 </div>
               </div>
             ))}
