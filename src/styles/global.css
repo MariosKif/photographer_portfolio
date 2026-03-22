@@ -47,7 +47,7 @@
     transition: all 0.5s linear;
   }
 
-  a:hover, a:visited, a:active, a:focus {
+  a:hover, a:active, a:focus {
     color: #fff;
     text-decoration: none;
     outline: none;

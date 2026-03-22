@@ -206,7 +206,7 @@ function initWorksSwiper() {
 
   new Swiper('.works-swiper', {
     modules: [Navigation, Grid],
-    slidesPerView: 2,
+    slidesPerView: 1,
     grid: {
       rows: 2,
       fill: 'row',
@@ -218,6 +218,10 @@ function initWorksSwiper() {
       prevEl: '.works-swiper .swiper-button-prev',
     },
     breakpoints: {
+      480: {
+        slidesPerView: 2,
+        grid: { rows: 2, fill: 'row' },
+      },
       880: {
         slidesPerView: 3,
         grid: { rows: 2, fill: 'row' },
