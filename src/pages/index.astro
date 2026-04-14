@@ -8,7 +8,7 @@ import WorksSection from '../components/sections/WorksSection.astro';
 import NewsSection from '../components/sections/NewsSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 ---
-<Layout title="Prophotogr">
+<Layout>
   <!-- preloader -->
   <div class="preloader-bg"></div>
   <div id="preloader">
@@ -18,29 +18,29 @@ import ContactSection from '../components/sections/ContactSection.astro';
   </div>
 
   <!-- logo -->
-  <a class="logo fixed inline-block top-[5px] left-[15px] leading-[0] cursor-pointer z-[200] transition-all duration-300 ease-smooth md:left-[25px] lg:top-[10px] lg:left-[50px]">
+  <a class="logo fixed inline-block top-[5px] left-[15px] leading-[0] cursor-pointer z-[200] transition-all duration-300 ease-smooth md:left-[25px] lg:top-[10px] lg:left-[50px]" href="#home" aria-label="Pro Photo GR — back to top">
     <div class="logo-img fadeIn-element">
-      <img src="/Sticker_7x7-converted-from-png.svg" alt="Prophotogr Logo" class="w-auto h-[60px] md:h-[70px] lg:h-[89px]" />
+      <img src="/Sticker_7x7-converted-from-png.svg" alt="Pro Photo GR — Επαγγελματίας Φωτογράφος Αθήνα" class="w-auto h-[60px] md:h-[70px] lg:h-[89px]" width="178" height="178" />
     </div>
   </a>
 
   <!-- navigation -->
-  <div class="navigation-fire navigation-icon-wrapper fadeIn-element fixed w-[35px] h-[25px] top-[17px] right-[15px] cursor-pointer z-[99998] md:right-[25px] lg:top-[42px] lg:right-[50px]">
+  <button type="button" class="navigation-fire navigation-icon-wrapper fadeIn-element fixed w-[35px] h-[25px] top-[17px] right-[15px] cursor-pointer z-[99998] md:right-[25px] lg:top-[42px] lg:right-[50px] bg-transparent border-0 p-0" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navigation-menu">
     <div class="navigation-icon" id="navigation-icon">
       <span class="line block w-[35px] h-[3px] my-[8px] mx-auto transition-all duration-300 ease-in-out bg-white"></span>
       <span class="line block w-[35px] h-[3px] my-[8px] mx-auto transition-all duration-300 ease-in-out bg-white"></span>
       <span class="line block w-[35px] h-[3px] my-[8px] mx-auto transition-all duration-300 ease-in-out bg-white"></span>
     </div>
-  </div>
+  </button>
 
-  <nav class="navigation-menu">
+  <nav class="navigation-menu" id="navigation-menu" aria-label="Main">
     <div class="navigation-menu-img-wrapper">
       <div class="navigation-menu-img">
-        <div class="menu-img active" style="background-image: url('/img/portrait/exofilo.jpg')" data-ref="menu-1"></div>
-        <div class="menu-img" style="background-image: url('/img/art/exofilo.jpg')" data-ref="menu-2"></div>
-        <div class="menu-img" style="background-image: url('/img/product/exofilo.jpg')" data-ref="menu-3"></div>
-        <div class="menu-img" style="background-image: url('/img/event/2024-03-16 15.41.46.jpg')" data-ref="menu-4"></div>
-        <div class="menu-img" style="background-image: url('/img/couple photography/exofilo.jpg')" data-ref="menu-5"></div>
+        <div class="menu-img active" style="background-image: url('/img/portrait/exofilo.webp')" data-ref="menu-1"></div>
+        <div class="menu-img" style="background-image: url('/img/art/exofilo.webp')" data-ref="menu-2"></div>
+        <div class="menu-img" style="background-image: url('/img/product/exofilo.webp')" data-ref="menu-3"></div>
+        <div class="menu-img" style="background-image: url('/img/event/2024-03-16 15.41.46.webp')" data-ref="menu-4"></div>
+        <div class="menu-img" style="background-image: url('/img/couple photography/exofilo.webp')" data-ref="menu-5"></div>
       </div>
       <div class="center-container-menu">
         <div class="center-block-menu">

@@ -1,0 +1,311 @@
+export interface Service {
+  slug: string;
+  /** English title used as the WorksSection card label. */
+  titleEn: string;
+  /** Greek H1 used on the dedicated page. */
+  titleGr: string;
+  /** Concise one-line summary for meta description and card subtitles. */
+  summary: string;
+  /** Full Greek body copy split into paragraphs. */
+  body: string[];
+  /** Bullets describing what the package includes. */
+  includes: string[];
+  /** Cover image displayed in WorksSection. */
+  cover: string;
+  /** Full gallery used on the dedicated page. */
+  gallery: string[];
+  /** Glightbox group identifier used on the homepage. */
+  galleryId: string;
+}
+
+const folder = (name: string) => `/img/${name}`;
+
+export const services: Service[] = [
+  {
+    slug: 'automotive',
+    titleEn: 'Automotive',
+    titleGr: 'Automotive Φωτογράφιση Αυτοκινήτου',
+    summary:
+      'Επαγγελματική φωτογράφιση αυτοκινήτου στην Αθήνα — εκθεσιακές, εμπορικές και lifestyle λήψεις για dealers, tuners και car content creators.',
+    body: [
+      'Η automotive φωτογραφία απαιτεί κατανόηση των γραμμών, του φωτός και του χώρου. Στο Pro Photo GR συνδυάζουμε στούντιο φωτισμό, location shoots και δραματικές βραδινές λήψεις για να αναδείξουμε χαρακτήρα και λεπτομέρεια κάθε αυτοκινήτου.',
+      'Δουλεύουμε με ιδιώτες, εκθέσεις, συνεργεία, tuning shops και car content creators σε όλη την Αττική. Παραδίδουμε υλικό έτοιμο για social media, e-shop, διαφημιστικές καμπάνιες και έντυπα.',
+    ],
+    includes: [
+      'Pre-shoot consultation και επιλογή location',
+      'Στούντιο ή location shoot με επαγγελματικό φωτισμό',
+      'Λεπτομέρειες, εκθεσιακές και lifestyle λήψεις',
+      'Επαγγελματικό retouching και χρωματική επεξεργασία',
+      'Παράδοση σε high-resolution και web-ready format',
+    ],
+    cover: folder('background/4.webp'),
+    galleryId: 'automotive',
+    gallery: [
+      folder('background/4.webp'),
+      folder('automotive/2023-06-18 18.01.04.webp'),
+      folder('automotive/2025-05-23 22.22.47.webp'),
+      folder('automotive/2025-05-24 15.00.21.webp'),
+      folder('automotive/2025-05-24 20.22.50.webp'),
+      folder('automotive/2025-05-24 21.31.30.webp'),
+      folder('automotive/2025-05-24 21.34.16.webp'),
+      folder('automotive/2025-05-24 21.35.37.webp'),
+      folder('automotive/2025-05-24 21.35.46.webp'),
+      folder('automotive/2025-05-24 21.35.47.webp'),
+      folder('automotive/2025-05-24 21.35.51.webp'),
+      folder('automotive/2025-05-24 22.10.55.webp'),
+      folder('automotive/2025-05-24 22.16.11.webp'),
+      folder('automotive/2025-05-24 22.37.04.webp'),
+      folder('automotive/2025-05-24 22.49.47.webp'),
+      folder('automotive/2025-05-24 22.50.16.webp'),
+      folder('automotive/_DSC5809.webp'),
+      folder('automotive/_DSC5811.webp'),
+      folder('automotive/_DSC7318.webp'),
+      folder('automotive/_DSC7371.webp'),
+      folder('automotive/_PRP7626 copy.webp'),
+      folder('automotive/exofilo.webp'),
+      folder('automotive/site no plate.webp'),
+    ],
+  },
+  {
+    slug: 'art',
+    titleEn: 'ART',
+    titleGr: 'Καλλιτεχνική Φωτογράφιση',
+    summary:
+      'Καλλιτεχνική και conceptual φωτογράφιση που εστιάζει στη σύνθεση, τον φωτισμό και το συναίσθημα. Pro Photo GR — Αθήνα.',
+    body: [
+      'Η καλλιτεχνική φωτογραφία είναι το πεδίο όπου η τεχνική γίνεται έκφραση. Στο Pro Photo GR εργαζόμαστε με concept-driven λήψεις, mixed media, fine-art portraits και experimental projects, με προσοχή στο φως, τη σύνθεση και τη συναισθηματική αφήγηση.',
+      'Συνεργαζόμαστε με καλλιτέχνες, μουσικούς, γκαλερί και brands για visual stories που ξεχωρίζουν, είτε ως print είτε ως ψηφιακό περιεχόμενο.',
+    ],
+    includes: [
+      'Concept development και mood-boarding',
+      'Studio ή location shoot με δημιουργικό φωτισμό',
+      'Συνεργασία με stylists, makeup artists και art directors',
+      'Fine-art retouching σε καλλιτεχνικό επίπεδο',
+      'Παράδοση για print, exhibition ή ψηφιακή χρήση',
+    ],
+    cover: folder('art/exofilo.webp'),
+    galleryId: 'art',
+    gallery: [
+      folder('art/exofilo.webp'),
+      folder('art/2024-08-10 18.24.20.webp'),
+      folder('art/2024-08-10 19.22.06.webp'),
+      folder('art/2024-08-10 19.24.57.webp'),
+      folder('art/2024-08-10 19.31.06.webp'),
+      folder('art/2024-08-10 19.35.01.webp'),
+      folder('art/2025-03-20 17.59.49.webp'),
+      folder('art/2025-04-02 17.27.05.webp'),
+      folder('art/2025-04-02 17.37.29.webp'),
+      folder('art/2025-06-17 18.22.58.webp'),
+      folder('art/_DSC8328.webp'),
+    ],
+  },
+  {
+    slug: 'events',
+    titleEn: 'Events',
+    titleGr: 'Φωτογράφιση Εκδηλώσεων & Events',
+    summary:
+      'Φωτογράφιση και βιντεογραφία εκδηλώσεων στην Αθήνα — εταιρικά events, parties, openings, performances. Pro Photo GR.',
+    body: [
+      'Από εταιρικές παρουσιάσεις και launch events μέχρι ιδιωτικά πάρτι, performances και opening nights, καλύπτουμε εκδηλώσεις σε όλη την Αττική με διακριτικό αλλά αφηγηματικό στυλ.',
+      'Δουλεύουμε γρήγορα και αξιόπιστα: το ίδιο βράδυ μπορούν να σας παραδοθούν επιλεγμένα πλάνα έτοιμα για social media, και πλήρες αρχείο μέσα σε ημέρες.',
+    ],
+    includes: [
+      'Documentary-style κάλυψη όλης της εκδήλωσης',
+      'Πορτρέτα guests, λεπτομέρειες και atmosphere shots',
+      'Επιλεγμένα express previews για άμεση δημοσίευση',
+      'Πλήρες ψηφιακό άλμπουμ με επαγγελματική επεξεργασία',
+      'Επιλογή για συνοδευτικό βίντεο highlights',
+    ],
+    cover: folder('event/2024-03-16 15.41.46.webp'),
+    galleryId: 'events',
+    gallery: [
+      folder('event/2024-03-16 15.41.46.webp'),
+      folder('event/2025-06-22 23.03.18.webp'),
+      folder('event/2025-06-22 23.03.32.webp'),
+      folder('event/2025-06-22 23.06.42.webp'),
+      folder('event/2025-06-22 23.42.08.webp'),
+      folder('event/2025-06-23 01.19.18.webp'),
+      folder('event/2025-06-23 01.23.13.webp'),
+      folder('event/2025-06-23 01.23.19.webp'),
+      folder('event/PRP07505 copy.webp'),
+      folder('event/_PRP0468 copy.webp'),
+      folder('event/_PRP1692 copy.webp'),
+      folder('event/_PRP1752 copy.webp'),
+      folder('event/_PRP1783 copy.webp'),
+      folder('event/_PRP2324 copy.webp'),
+      folder('event/_PRP2420 copy.webp'),
+      folder('event/_PRP2599 copy.webp'),
+      folder('event/_PRP2674 copy.webp'),
+      folder('event/_PRP2702 copy.webp'),
+      folder('event/_PRP2734 copy.webp'),
+      folder('event/_PRP2764 copy.webp'),
+      folder('event/_PRP2825 copy.webp'),
+      folder('event/_PRP2913 copy.webp'),
+      folder('event/_PRP2935 copy.webp'),
+      folder('event/_PRP2986 copy.webp'),
+      folder('event/_PRP3052 copy.webp'),
+      folder('event/_PRP3136 copy.webp'),
+      folder('event/_PRP3157 copy.webp'),
+      folder('event/_PRP3213 copy.webp'),
+      folder('event/_PRP3229-Enhanced-NR copy.webp'),
+      folder('event/_PRP3238 copy.webp'),
+      folder('event/_PRP3543-Enhanced-NR copy.webp'),
+      folder('event/_PRP3664-Enhanced-NR copy.webp'),
+    ],
+  },
+  {
+    slug: 'products',
+    titleEn: 'Products',
+    titleGr: 'Φωτογράφιση Προϊόντων για E-shop & Brands',
+    summary:
+      'Επαγγελματική φωτογράφιση προϊόντων: λευκό φόντο, lifestyle, e-shop & κατάλογος. Pro Photo GR στην Αθήνα.',
+    body: [
+      'Στη φωτογραφία προϊόντος, ο φωτισμός και η σύνθεση είναι αυτά που κάνουν τη διαφορά μεταξύ ενός καλού και ενός εμπορικά αποδοτικού πλάνου. Παρέχουμε καθαρό λευκό φόντο, lifestyle σκηνές και creative content για e-shop, καταλόγους, social media και διαφημιστικές καμπάνιες.',
+      'Δουλεύουμε με μικρά και μεγάλα brands, σε σταθερό studio setup ή on-location για lifestyle pieces. Παράδοση σύμφωνα με τις προδιαγραφές του e-shop σας (Shopify, WooCommerce, Etsy κ.ά.).',
+    ],
+    includes: [
+      'Λευκό ή μαύρο φόντο για e-shop',
+      'Lifestyle / in-context λήψεις',
+      'Creative content για social media και ads',
+      'Color matching και επεξεργασία σύμφωνα με brand guidelines',
+      'Έτοιμα assets σε διαστάσεις e-shop, Instagram, web banners',
+    ],
+    cover: folder('product/exofilo.webp'),
+    galleryId: 'products',
+    gallery: [
+      folder('product/exofilo.webp'),
+      folder('product/2024-01-30 14.41.50.webp'),
+      folder('product/2024-01-30 14.42.21.webp'),
+      folder('product/2024-01-30 14.42.53.webp'),
+      folder('product/2024-01-30 14.44.19.webp'),
+      folder('product/2024-01-30 14.46.42.webp'),
+      folder('product/2024-03-26 13.59.37.webp'),
+      folder('product/2025-03-13 14.33.12.webp'),
+      folder('product/2025-06-08 19.47.39.webp'),
+      folder('product/2025-06-20 11.25.33.webp'),
+      folder('product/2025-06-20 11.25.38.webp'),
+      folder('product/2025-06-20 11.25.46.webp'),
+      folder('product/2025-07-04 18.30.57.webp'),
+      folder('product/2025-07-04 21.03.16.webp'),
+      folder('product/2025-07-04 21.18.24.webp'),
+      folder('product/2025-07-04 21.20.53.webp'),
+      folder('product/2025-07-04 21.25.23.webp'),
+      folder('product/3.2.webp'),
+      folder('product/_DSC1905.webp'),
+      folder('product/_DSC1910.webp'),
+      folder('product/_DSC4549 copy.webp'),
+      folder('product/_DSC4562 copy.webp'),
+      folder('product/_DSC4564 copy.webp'),
+      folder('product/_DSC4581 copy.webp'),
+    ],
+  },
+  {
+    slug: 'portrait',
+    titleEn: 'Portrait',
+    titleGr: 'Πορτρέτο & Personal Branding',
+    summary:
+      'Καλλιτεχνικό και επαγγελματικό πορτρέτο στην Αθήνα — studio, location, personal branding και social media headshots.',
+    body: [
+      'Είτε ψάχνετε ένα δυνατό personal branding portrait για το LinkedIn, είτε ένα καλλιτεχνικό πορτρέτο για το προσωπικό σας portfolio, η εμπειρία στο φωτισμό και στη σκηνοθεσία θα φέρει την καλύτερη εκδοχή σας μπροστά στο φακό.',
+      'Δουλεύουμε σε στούντιο της Αθήνας ή σε επιλεγμένα location, με συνεργάτες makeup artists και stylists όπου χρειάζεται.',
+    ],
+    includes: [
+      '60–120 λεπτά shoot σε studio ή location',
+      'Σκηνοθεσία πόζας και έκφρασης',
+      'Επιλογή 8–20 επεξεργασμένων αρχείων (ανάλογα πακέτο)',
+      'Επαγγελματική επεξεργασία δέρματος και χρώματος',
+      'Παράδοση σε print-ready και web-optimised αρχεία',
+    ],
+    cover: folder('portrait/exofilo.webp'),
+    galleryId: 'portrait',
+    gallery: [
+      folder('portrait/exofilo.webp'),
+      folder('portrait/2024-04-22 21.47.47.webp'),
+      folder('portrait/2024-04-28 23.36.00.webp'),
+      folder('portrait/2025-01-07 18.30.52.webp'),
+      folder('portrait/2025-01-07 18.31.33.webp'),
+      folder('portrait/2025-03-20 17.03.14.webp'),
+      folder('portrait/2025-03-24 19.03.50.webp'),
+      folder('portrait/2025-04-01 21.53.37.webp'),
+      folder('portrait/2025-04-02 15.43.00.webp'),
+      folder('portrait/2025-04-02 17.29.27.webp'),
+      folder('portrait/2025-06-17 15.59.32.webp'),
+      folder('portrait/2025-06-26 15.29.14.webp'),
+      folder('portrait/2025-06-26 15.53.42.webp'),
+      folder('portrait/2025-06-26 16.26.27.webp'),
+      folder('portrait/2025-06-26 17.10.03.webp'),
+      folder('portrait/_DSC0752.webp'),
+      folder('portrait/_DSC1241.webp'),
+      folder('portrait/_DSC1249.webp'),
+      folder('portrait/_DSC1396.webp'),
+      folder('portrait/_DSC1408.webp'),
+      folder('portrait/_DSC1483 copy.webp'),
+      folder('portrait/_DSC1485.webp'),
+      folder('portrait/_DSC1675 copy.webp'),
+      folder('portrait/_DSC1840.webp'),
+      folder('portrait/_DSC1844.webp'),
+      folder('portrait/_DSC2715 copy.webp'),
+      folder('portrait/_DSC4289.webp'),
+      folder('portrait/_DSC4308.webp'),
+      folder('portrait/_DSC4953.webp'),
+      folder('portrait/_DSC4960.webp'),
+      folder('portrait/_DSC6073.webp'),
+      folder('portrait/_DSC6121.webp'),
+      folder('portrait/_DSC6200.webp'),
+      folder('portrait/_DSC6207.webp'),
+      folder('portrait/_DSC6430.webp'),
+      folder('portrait/_DSC6779.webp'),
+      folder('portrait/_DSC6783.webp'),
+      folder('portrait/_DSC6811.webp'),
+      folder('portrait/_DSC7131.webp'),
+      folder('portrait/_DSC7271.webp'),
+      folder('portrait/_DSC7845-2.webp'),
+      folder('portrait/_DSC7893.webp'),
+      folder('portrait/_DSC7914.webp'),
+      folder('portrait/_DSC7988.webp'),
+      folder('portrait/_DSC8017.webp'),
+      folder('portrait/_DSC8030.webp'),
+      folder('portrait/_PRP0079 copy.webp'),
+      folder('portrait/_PRP0403 copy.webp'),
+      folder('portrait/_PRP0441 copy.webp'),
+      folder('portrait/_PRP6697 copy.webp'),
+      folder('portrait/_PRP6879 copy.webp'),
+      folder('portrait/_PRP7741 copy.webp'),
+    ],
+  },
+  {
+    slug: 'couple-photography',
+    titleEn: 'Couple Photography',
+    titleGr: 'Couple Photography & Engagement Shoots',
+    summary:
+      'Φωτογράφιση ζευγαριών στην Αθήνα — engagement, anniversary και lifestyle couple shoots σε αυθεντικό, χαλαρό στυλ.',
+    body: [
+      'Couple photography σημαίνει χρόνος για το ζευγάρι, αυθεντικές στιγμές και ωραίο φως. Είτε είναι engagement shoot, anniversary, είτε απλά μια ωραία αφορμή να έχετε τις φωτογραφίες σας μαζί, σχεδιάζουμε το shoot γύρω από εσάς.',
+      'Δουλεύουμε σε αγαπημένα σας σημεία της Αθήνας ή σε επιλεγμένα location που ταιριάζουν στη διάθεση που θέλετε.',
+    ],
+    includes: [
+      '90–120 λεπτά shoot σε location της επιλογής σας',
+      'Σκηνοθεσία ώστε να μην νιώθετε posed',
+      '20–40 επεξεργασμένα αρχεία',
+      'Επιλογή για print-ready άλμπουμ',
+      'Παράδοση σε ψηφιακό gallery σε λίγες μέρες',
+    ],
+    cover: folder('couple photography/exofilo.webp'),
+    galleryId: 'couple',
+    gallery: [
+      folder('couple photography/exofilo.webp'),
+      folder('couple photography/2025-05-27 22.17.00.webp'),
+      folder('couple photography/2025-05-27 22.17.18.webp'),
+      folder('couple photography/2025-05-27 22.18.53.webp'),
+      folder('couple photography/2025-05-27 22.20.10.webp'),
+      folder('couple photography/2025-05-27 22.20.58.webp'),
+    ],
+  },
+];
+
+export const getServiceBySlug = (slug: string) =>
+  services.find((s) => s.slug === slug);
+
+/** Generate descriptive Greek alt text for a gallery image. */
+export const altFor = (service: Service, index: number) =>
+  `${service.titleGr} — ${service.summary.split('.')[0]} — εικόνα ${index + 1} από Pro Photo GR (Αθήνα).`;

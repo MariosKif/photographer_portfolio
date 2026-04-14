@@ -1,8 +1,8 @@
 ---
 const slides = [
-  { bg: 'bg-img-2', image: '/img/background/4.jpg' },
-  { bg: 'bg-img-3', image: '/img/background/2024-09-07-20.14.34.jpg' },
-  { bg: 'bg-img-4', image: '/img/background/5.jpg' },
+  { bg: 'bg-img-2', image: '/img/background/4.webp' },
+  { bg: 'bg-img-3', image: '/img/background/2024-09-07-20.14.34.webp' },
+  { bg: 'bg-img-4', image: '/img/background/5.webp' },
 ];
 ---
 <div class="section relative overflow-hidden h-screen bg-transparent" id="home">
@@ -20,8 +20,10 @@ const slides = [
                     <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
                     <div class="overlay overlay-dark-60"></div>
                     <div class="swiper-slide-inner-txt text-center">
-                      <div class="font-oswald text-[13px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] md:text-[15px] md:mb-[14px] lg:text-[17px]">Everyone Needs a</div>
-                      <div class="font-oswald text-[40px] font-bold uppercase leading-none text-white md:text-[75px] md:-ml-[4px] lg:text-[115px] lg:-ml-[6px] xl:text-[155px] xl:-ml-[9px]">Prophotogr</div>
+                      <h1 class="m-0 p-0 font-normal">
+                        <span class="block font-oswald text-[13px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] md:text-[15px] md:mb-[14px] lg:text-[17px]">Everyone Needs a</span>
+                        <span class="block font-oswald text-[40px] font-bold uppercase leading-none text-white md:text-[75px] md:-ml-[4px] lg:text-[115px] lg:-ml-[6px] xl:text-[155px] xl:-ml-[9px]">Prophotogr</span>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -68,9 +70,9 @@ const slides = [
   <!-- social icons -->
   <div class="absolute right-[50px] bottom-[48px] text-right z-[1002] fadeIn-element hidden md:block">
     <ul class="text-[16px] leading-none relative">
-      <li class="inline-block pl-[5px]"><a class="ion-social-facebook text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer"></a></li>
-      <li class="inline-block pl-[5px]"><a class="text-white hover:opacity-50 transition-all duration-500 no-underline inline-flex items-center" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
-      <li class="inline-block pl-[5px]"><a class="ion-social-instagram text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer"></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-facebook text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Facebook"></a></li>
+      <li class="inline-block pl-[5px]"><a class="text-white hover:opacity-50 transition-all duration-500 no-underline inline-flex items-center" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
+      <li class="inline-block pl-[5px]"><a class="ion-social-instagram text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Instagram"></a></li>
     </ul>
   </div>
 

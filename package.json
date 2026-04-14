@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@fontsource/oswald": "^5.2.8",
     "@fontsource/raleway": "^5.2.8",
     "astro": "^6.0.3",

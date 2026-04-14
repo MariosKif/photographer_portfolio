@@ -1,19 +1,120 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  ogImage?: string;
 }
-const { title } = Astro.props;
+
+const {
+  title = 'Pro Photo GR | Επαγγελματίας Φωτογράφος Αθήνα — Portrait, Product, Event',
+  description = 'Pro Photo GR — Ιωάννης Μαστροσταμάτης. Επαγγελματίας φωτογράφος στην Αθήνα με 5+ χρόνια εμπειρίας σε portrait, προϊόντα, events, couple & automotive φωτογράφιση και βιντεογραφία. Κλείστε ραντεβού.',
+  ogImage = '/img/background/4.webp',
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://www.prophotogr.com');
+const canonical = new URL(Astro.url.pathname, site).toString();
+const ogImageUrl = new URL(ogImage, site).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.origin}/#business`,
+      name: 'Pro Photo GR',
+      alternateName: ['Prophotogr', 'Pro_photo_gr'],
+      description,
+      image: `${site.origin}/Sticker_7x7-converted-from-png.svg`,
+      logo: `${site.origin}/Sticker_7x7-converted-from-png.svg`,
+      url: site.origin,
+      telephone: '+30-694-011-5915',
+      email: 'Prophotogr5@gmail.com',
+      priceRange: '€€',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Athens',
+        addressRegion: 'Attica',
+        addressCountry: 'GR',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Athens' },
+        { '@type': 'Country', name: 'Greece' },
+      ],
+      serviceType: [
+        'Portrait Photography',
+        'Product Photography',
+        'Event Photography',
+        'Couple Photography',
+        'Automotive Photography',
+        'Videography',
+      ],
+      sameAs: [
+        'https://www.facebook.com/p/Pro_photo_gr-100077780100902/',
+        'https://www.instagram.com/pro_photo_gr_/',
+        'https://www.tiktok.com/@m_ioannis_',
+      ],
+      founder: { '@id': `${site.origin}/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${site.origin}/#person`,
+      name: 'Ιωάννης Μαστροσταμάτης',
+      alternateName: 'Ioannis Mastrostamatis',
+      jobTitle: 'Professional Photographer',
+      worksFor: { '@id': `${site.origin}/#business` },
+      sameAs: [
+        'https://www.instagram.com/pro_photo_gr_/',
+        'https://www.tiktok.com/@m_ioannis_',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.origin}/#website`,
+      url: site.origin,
+      name: 'Pro Photo GR',
+      inLanguage: 'el-GR',
+      publisher: { '@id': `${site.origin}/#business` },
+    },
+  ],
+};
 ---
 <!doctype html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Ιωάννης Μαστροσταμάτης" />
+
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/ionicons.min.css" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pro Photo GR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="Pro Photo GR — Ιωάννης Μαστροσταμάτης" />
+    <meta property="og:locale" content="el_GR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <slot name="head" />
   </head>
   <body>
     <slot />
