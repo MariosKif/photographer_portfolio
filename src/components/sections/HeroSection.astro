@@ -1,6 +1,5 @@
 ---
 const slides = [
-  { bg: 'bg-img-1', video: '/img/background/hero-video.mp4' },
   { bg: 'bg-img-2', image: '/img/background/4.jpg' },
   { bg: 'bg-img-3', image: '/img/background/2024-09-07-20.14.34.jpg' },
   { bg: 'bg-img-4', image: '/img/background/5.jpg' },
@@ -18,13 +17,7 @@ const slides = [
               {slides.map((slide) => (
                 <div class="swiper-slide">
                   <div class="swiper-slide-inner" data-swiper-parallax="50%">
-                    {slide.video ? (
-                      <video class="swiper-slide-inner-bg" autoplay muted loop playsinline preload="auto">
-                        <source src={slide.video} type="video/mp4" />
-                      </video>
-                    ) : (
-                      <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
-                    )}
+                    <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
                     <div class="overlay overlay-dark-60"></div>
                     <div class="swiper-slide-inner-txt text-center">
                       <div class="font-oswald text-[13px] font-normal uppercase tracking-wide text-white leading-none mb-[2px] md:text-[15px] md:mb-[14px] lg:text-[17px]">Everyone Needs a</div>
