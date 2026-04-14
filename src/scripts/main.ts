@@ -10,22 +10,59 @@ import 'swiper/css/pagination';
 import 'swiper/css/grid';
 import 'glightbox/dist/css/glightbox.min.css';
 
+// Self-hosted fonts (font-display: swap is built-in to @fontsource)
+import '@fontsource/raleway/100.css';
+import '@fontsource/raleway/200.css';
+import '@fontsource/raleway/300.css';
+import '@fontsource/raleway/400.css';
+import '@fontsource/raleway/500.css';
+import '@fontsource/raleway/600.css';
+import '@fontsource/raleway/700.css';
+import '@fontsource/raleway/800.css';
+import '@fontsource/raleway/900.css';
+import '@fontsource/oswald/300.css';
+import '@fontsource/oswald/400.css';
+import '@fontsource/oswald/700.css';
+
 gsap.registerPlugin(ScrollTrigger);
+
+// Defer a setup function until its target element is about to enter the viewport.
+// Falls back to immediate init when IntersectionObserver isn't available.
+function whenVisible(selector: string, init: () => void) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  if (!('IntersectionObserver' in window)) { init(); return; }
+  let done = false;
+  const io = new IntersectionObserver((entries) => {
+    if (done) return;
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        done = true;
+        io.disconnect();
+        init();
+        break;
+      }
+    }
+  }, { rootMargin: '200px 0px' });
+  io.observe(el);
+}
 
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initNavigation();
-  initHeroSwiper();
-  initAboutSwiper();
-  initServicesSwiper();
-  initWorksSwiper();
-  initNewsSwiper();
-  initLightbox();
-  initAnimations();
+  initHeroSwiper();          // above-the-fold — init immediately
+  initLightbox();             // click-delegated, cheap to init
   initNewsPanels();
   initContactModal();
   initContactForm();
+
+  // Below-the-fold — defer to when scrolled near
+  whenVisible('.about-content-swiper', initAboutSwiper);
+  whenVisible('.services-swiper-1, .services-swiper-2', initServicesSwiper);
+  whenVisible('.works-swiper', initWorksSwiper);
+  whenVisible('.news-swiper', initNewsSwiper);
+  whenVisible('.skillbar, [data-target]', initAnimations);
 });
 
 // ===== 1. Preloader =====
@@ -86,31 +123,40 @@ function initNavigation() {
     });
   });
 
-  // Hover state with images
-  document.querySelectorAll('.menu li a').forEach((link) => {
+  // Hover state with images — rAF-throttled to coalesce rapid pointer moves
+  const menuLinks = document.querySelectorAll<HTMLElement>('.menu li a');
+  const menuImgs = document.querySelectorAll<HTMLElement>('.menu-img');
+  let hoverFrame = 0;
+  let pendingHoverLink: HTMLElement | null = null;
+  const applyHover = () => {
+    hoverFrame = 0;
+    const link = pendingHoverLink;
+    if (!link) return;
+    const ref = link.dataset.ref;
+    menuLinks.forEach((l) => l.classList.remove('active'));
+    link.classList.add('active');
+    menuImgs.forEach((img) => img.classList.remove('active'));
+    if (ref) {
+      const img = document.querySelector<HTMLElement>(`.menu-img[data-ref="${ref}"]`);
+      if (img) img.classList.add('active');
+    }
+  };
+  menuLinks.forEach((link) => {
     link.addEventListener('mouseenter', () => {
-      const ref = (link as HTMLElement).dataset.ref;
-      const menuImg = document.querySelector(`.menu-img[data-ref="${ref}"]`);
-      document.querySelectorAll('.menu li a').forEach((l) => l.classList.remove('active'));
-      link.classList.add('active');
-      document.querySelectorAll('.menu-img').forEach((img) => img.classList.remove('active'));
-      if (menuImg) menuImg.classList.add('active');
+      pendingHoverLink = link;
+      if (!hoverFrame) hoverFrame = requestAnimationFrame(applyHover);
     });
   });
 
-  // Hamburger line transforms when active
+  // Hamburger line transforms: call directly on toggle (replaces MutationObserver)
   if (navIcon) {
-    const lines = navIcon.querySelectorAll('.line');
-    const observer = new MutationObserver(() => {
-      if (navIcon.classList.contains('active')) {
-        if (lines[0]) (lines[0] as HTMLElement).style.transform = 'translateY(11px)';
-        if (lines[2]) (lines[2] as HTMLElement).style.transform = 'translateY(-11px)';
-      } else {
-        if (lines[0]) (lines[0] as HTMLElement).style.transform = '';
-        if (lines[2]) (lines[2] as HTMLElement).style.transform = '';
-      }
-    });
-    observer.observe(navIcon, { attributes: true, attributeFilter: ['class'] });
+    const lines = navIcon.querySelectorAll<HTMLElement>('.line');
+    const syncHamburger = () => {
+      const active = navIcon.classList.contains('active');
+      if (lines[0]) lines[0].style.transform = active ? 'translateY(11px)' : '';
+      if (lines[2]) lines[2].style.transform = active ? 'translateY(-11px)' : '';
+    };
+    navIcon.addEventListener('click', () => queueMicrotask(syncHamburger));
   }
 }
 
@@ -253,13 +299,50 @@ function initNewsSwiper() {
 
 // ===== 8. Lightbox =====
 function initLightbox() {
-  GLightbox({
+  const lightbox = GLightbox({
     selector: '.popup-photo',
     touchNavigation: true,
     loop: true,
     closeEffect: 'fade',
     openEffect: 'fade',
   });
+
+  // Defer gallery sibling anchors (~148 nodes) until a gallery is first engaged.
+  // Why: rendering all hidden <a> tags upfront adds DOM nodes and lets GLightbox
+  // eagerly index them at init. Inject on hover/focus/touch — one-shot per gallery.
+  const injectExtras = (link: HTMLAnchorElement) => {
+    const extraJson = link.dataset.galleryExtra;
+    if (!extraJson) return false;
+    try {
+      const urls = JSON.parse(extraJson) as string[];
+      const gallery = link.dataset.gallery;
+      const parent = link.parentElement;
+      if (!parent) return false;
+      for (const url of urls) {
+        const a = document.createElement('a');
+        a.className = 'popup-photo hidden';
+        a.href = url;
+        if (gallery) a.dataset.gallery = gallery;
+        parent.appendChild(a);
+      }
+      delete link.dataset.galleryExtra;
+      lightbox.reload();
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const onEngage = (e: Event) => {
+    const link = (e.target as HTMLElement | null)?.closest?.('a.popup-photo[data-gallery-extra]') as HTMLAnchorElement | null;
+    if (link) injectExtras(link);
+  };
+
+  document.addEventListener('pointerover', onEngage, { passive: true });
+  document.addEventListener('focusin', onEngage);
+  document.addEventListener('touchstart', onEngage, { passive: true });
+  // Click-time fallback for keyboard-only users who bypassed focusin handlers
+  document.addEventListener('click', onEngage, true);
 }
 
 // ===== 9. Animations (Skills + Counters) =====

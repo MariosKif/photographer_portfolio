@@ -5,11 +5,7 @@
 /* ===== Ionicons v2 font ===== */
 @font-face {
   font-family: 'Ionicons';
-  src: url('/fonts/ionicons.eot');
-  src: url('/fonts/ionicons.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/ionicons.woff') format('woff'),
-       url('/fonts/ionicons.ttf') format('truetype'),
-       url('/fonts/ionicons.svg#Ionicons') format('svg');
+  src: url('/fonts/ionicons.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

@@ -186,10 +186,8 @@ const worksItems = [
                       href={item.href}
                       title={item.title.replace(/<br\s*\/?>/g, ' ')}
                       data-gallery={item.gallery || undefined}
+                      data-gallery-extra={item.galleryImages && item.galleryImages.length > 1 ? JSON.stringify(item.galleryImages.slice(1)) : undefined}
                     ><span>{item.label}</span></a>
-                    {item.galleryImages && item.galleryImages.slice(1).map((img) => (
-                      <a class="popup-photo hidden" href={img} data-gallery={item.gallery}></a>
-                    ))}
                   </div>
                 </div>
               </div>
