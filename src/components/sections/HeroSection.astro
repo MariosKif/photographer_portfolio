@@ -14,10 +14,19 @@ const slides = [
         <div class="swiper-container-wrapper">
           <div class="swiper-container hero-swiper">
             <div class="swiper-wrapper">
-              {slides.map((slide) => (
+              {slides.map((slide, i) => (
                 <div class="swiper-slide">
                   <div class="swiper-slide-inner" data-swiper-parallax="50%">
-                    <div class="swiper-slide-inner-bg" style={`background-image: url('${slide.image}')`}></div>
+                    <img
+                      class="swiper-slide-inner-bg"
+                      src={slide.image}
+                      alt=""
+                      width="1920"
+                      height="1080"
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      fetchpriority={i === 0 ? 'high' : 'auto'}
+                      decoding={i === 0 ? 'sync' : 'async'}
+                    />
                     <div class="overlay overlay-dark-60"></div>
                     <div class="swiper-slide-inner-txt text-center">
                       <h1 class="m-0 p-0 font-normal">
@@ -64,15 +73,15 @@ const slides = [
 
   <!-- bottom credits -->
   <div class="absolute block left-[20px] bottom-[30px] text-white text-[9px] uppercase tracking-wide font-extrabold z-[1002] fadeIn-element md:left-[26px] md:text-[8px] lg:left-[51px] lg:bottom-[47px]">
-    <a class="link-underline" href="#">PROPHOTOGR</a> &copy; All Rights Reserved.
+    <a class="link-underline" href="#home">PROPHOTOGR</a> &copy; All Rights Reserved.
   </div>
 
   <!-- social icons -->
   <div class="absolute right-[50px] bottom-[48px] text-right z-[1002] fadeIn-element hidden md:block">
     <ul class="text-[16px] leading-none relative">
-      <li class="inline-block pl-[5px]"><a class="ion-social-facebook text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Facebook"></a></li>
-      <li class="inline-block pl-[5px]"><a class="text-white hover:opacity-50 transition-all duration-500 no-underline inline-flex items-center" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
-      <li class="inline-block pl-[5px]"><a class="ion-social-instagram text-white hover:opacity-50 transition-all duration-500 no-underline" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Instagram"></a></li>
+      <li class="inline-block"><a class="social-link ion-social-facebook text-white" href="https://www.facebook.com/p/Pro_photo_gr-100077780100902/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Facebook"></a></li>
+      <li class="inline-block"><a class="social-link text-white" href="https://www.tiktok.com/@m_ioannis_" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M448 209.9a210.1 210.1 0 01-122.8-39.3v178.8A162.6 162.6 0 11185 188.3v89.9a74.6 74.6 0 1052.2 71.2V0h88a121 121 0 00122.8 120.1z"/></svg></a></li>
+      <li class="inline-block"><a class="social-link ion-social-instagram text-white" href="https://www.instagram.com/pro_photo_gr_/" target="_blank" rel="noopener noreferrer" aria-label="Pro Photo GR on Instagram"></a></li>
     </ul>
   </div>
 

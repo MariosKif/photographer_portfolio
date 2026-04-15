@@ -11,6 +11,20 @@
   font-display: swap;
 }
 
+/* Accessible tap target for icon-only social links (48×48 minimum). */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+.social-link:hover { opacity: 0.5; }
+
 /* ===== Base Reset ===== */
 @layer base {
   *, *::before, *::after {
@@ -574,8 +588,10 @@ nav.navigation-menu li.last {
   opacity: 0.2;
 }
 
-video.swiper-slide-inner-bg {
+video.swiper-slide-inner-bg,
+img.swiper-slide-inner-bg {
   object-fit: cover;
+  object-position: center center;
 }
 
 .swiper-slide-duplicate-active .swiper-slide-inner-bg,

@@ -10,7 +10,9 @@ export default defineConfig({
     service: { entrypoint: 'astro/assets/services/sharp' },
   },
   build: {
-    inlineStylesheets: 'auto',
+    // Inline all stylesheets into the HTML — eliminates render-blocking CSS
+    // requests at the cost of slightly larger HTML. Worth it for a 7-page static site.
+    inlineStylesheets: 'always',
   },
   vite: {
     build: {
