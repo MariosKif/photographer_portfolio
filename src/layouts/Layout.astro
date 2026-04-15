@@ -3,12 +3,15 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Absolute or root-relative path to an image to preload as the LCP candidate. */
+  preloadImage?: string;
 }
 
 const {
   title = 'Pro Photo GR | Επαγγελματίας Φωτογράφος Αθήνα — Portrait, Product, Event',
   description = 'Pro Photo GR — Ιωάννης Μαστροσταμάτης. Επαγγελματίας φωτογράφος στην Αθήνα με 5+ χρόνια εμπειρίας σε portrait, προϊόντα, events, couple & automotive φωτογράφιση και βιντεογραφία. Κλείστε ραντεβού.',
   ogImage = '/img/background/4.webp',
+  preloadImage,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://www.prophotogr.com');
@@ -93,7 +96,14 @@ const jsonLd = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/css/ionicons.min.css" />
+
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} type="image/webp" fetchpriority="high" />
+    )}
+
+    <!-- Non-critical icon font: load async so it doesn't block first paint -->
+    <link rel="preload" href="/css/ionicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/ionicons.min.css" /></noscript>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
