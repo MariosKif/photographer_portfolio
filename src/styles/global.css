@@ -588,6 +588,16 @@ nav.navigation-menu li.last {
   opacity: 0.2;
 }
 
+/* Before Swiper initialises, paint the first slide fully so it can be the
+   LCP element instead of waiting for JS to add .swiper-slide-active. */
+.hero-swiper:not(.swiper-initialized) .swiper-slide:first-of-type .swiper-slide-inner-bg {
+  transform: scale(1);
+  opacity: 1;
+}
+.hero-swiper:not(.swiper-initialized) .swiper-slide:first-of-type .swiper-slide-inner-txt {
+  opacity: 1;
+}
+
 video.swiper-slide-inner-bg,
 img.swiper-slide-inner-bg {
   object-fit: cover;
