@@ -74,7 +74,7 @@ const otherServices = services.filter((s) => s.slug !== service.slug);
       </header>
 
       <section class="mb-16" aria-labelledby="includes-heading">
-        <h2 id="includes-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-4 spacer-line-vertical-light pb-4">
+        <h2 id="includes-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-4 pb-4">
           Τι περιλαμβάνει
         </h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl">
@@ -88,14 +88,14 @@ const otherServices = services.filter((s) => s.slug !== service.slug);
       </section>
 
       <section class="mb-16" aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-6 spacer-line-vertical-light pb-4">
+        <h2 id="gallery-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-6 pb-4">
           Gallery — {service.titleEn}
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {service.gallery.map((src, i) => (
             <a
               href={src}
-              class="block aspect-[4/5] overflow-hidden bg-[#111] group"
+              class="popup-photo block aspect-[4/5] overflow-hidden bg-[#111] group"
               data-gallery={`service-${service.slug}`}
               aria-label={`Άνοιγμα φωτογραφίας ${i + 1} από ${service.titleGr}`}
             >
@@ -131,7 +131,7 @@ const otherServices = services.filter((s) => s.slug !== service.slug);
       </section>
 
       <section aria-labelledby="other-services-heading">
-        <h2 id="other-services-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-6 spacer-line-vertical-light pb-4">
+        <h2 id="other-services-heading" class="font-oswald text-[20px] md:text-[24px] uppercase tracking-wide mb-6 pb-4">
           Άλλες υπηρεσίες
         </h2>
         <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
